@@ -11,18 +11,19 @@
 
   {% for conference in conferences %}
     <h4>
-      <p>
-        <a href="{{
-          path(
-            'conference',
-            {
-              id: conference.id
-            }
-          )
-          }}">
-          {{ conference }}
-        </a>
-      </p>
+      {{ conference }}
     </h4>
+    <p>
+      <a href="{{
+        path(
+          'conference',
+          {
+            id: conference.id
+          }
+        )
+        }}">
+        View
+      </a>
+    </p>
   {% endfor %}
 {% endblock %}
