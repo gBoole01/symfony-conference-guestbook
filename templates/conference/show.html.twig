@@ -15,7 +15,7 @@
 
     {% for comment in comments %}
       {% if comment.photofilename %}
-        <img src="{{ asset('uploads/photos/' ~ comment.photofilename) }}" />
+        <img src="{{ asset('uploads/photos/' ~ comment.photofilename) }}" width=200 height=120 />
       {% endif %}
       <h4>
         {{ comment.author }}
@@ -39,7 +39,7 @@
         Previous
       </a>
     {% endif %}
-    {% if next <= (comments|length) %}
+    {% if next < (comments|length) %}
       <a href="{{
         path(
           'conference',
