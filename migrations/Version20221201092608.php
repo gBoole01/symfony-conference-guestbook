@@ -34,5 +34,6 @@ final class Version20221201092608 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SCHEMA public');
+        $this->addSql('DROP TABLE sessions');
     }
 }
