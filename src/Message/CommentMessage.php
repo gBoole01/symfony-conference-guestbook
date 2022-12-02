@@ -20,7 +20,7 @@ class CommentMessage
         return $this->id;
     }
 
-    public function getReviewUrl(): int
+    public function getReviewUrl(): string
     {
         return $this->reviewUrl;
     }

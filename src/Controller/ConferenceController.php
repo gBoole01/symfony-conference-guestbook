@@ -104,7 +104,7 @@ class ConferenceController extends AbstractController
         }
 
         if ($form->isSubmitted()) {
-            $notifier->send(new Notification('Can you check your submission? There are some problems with it.' ['browser']));
+            $notifier->send(new Notification('Can you check your submission? There are some problems with it.', ['browser']));
         }
 
         $offset = max(0, $request->query->getInt('offset', 0));

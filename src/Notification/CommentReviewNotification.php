@@ -41,7 +41,7 @@ class CommentReviewNotification extends Notification implements
         );
         $message
             ->getMessage()
-            ->htmlTemplate('emails/comment_notification.html.twig')
+            ->htmlTemplate('emails/comment_review_notification.html.twig')
             ->context(['comment' => $this->comment]);
 
         return $message;

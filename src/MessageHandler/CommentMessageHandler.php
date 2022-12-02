@@ -4,6 +4,7 @@ namespace App\MessageHandler;
 
 use App\ImageOptimizer;
 use App\Message\CommentMessage;
+use App\Notification\CommentPublishedNotification;
 use App\Notification\CommentReviewNotification;
 use App\Repository\CommentRepository;
 use App\SpamChecker;
@@ -12,6 +13,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Notifier\NotifierInterface;
+use Symfony\Component\Notifier\Recipient\Recipient;
 use Symfony\Component\Workflow\WorkflowInterface;
 
 class CommentMessageHandler implements MessageHandlerInterface
@@ -77,6 +79,10 @@ class CommentMessageHandler implements MessageHandlerInterface
             if ($comment->getPhotoFilename()) {
                 $this->imageOptimizer->resize($this->photoDir.'/'.$comment->getPhotoFilename());
             }
+
+            $notification = new CommentPublishedNotification($comment);
+            $recipient = new Recipient($comment->getEmail(), '');
+            $this->notifier->send($notification, $recipient);
             $this->workflow->apply($comment, 'optimize');
             $this->entityManager->flush();
         } elseif ($this->logger) {
