@@ -6,7 +6,7 @@
 
 {% block body %}
   <h2 class="mb-5">
-    Give your feedback!
+    {{ 'Give your feedback!'|trans }}
   </h2>
 
   {% for row in conferences|batch(4) %}
@@ -30,7 +30,7 @@
                 )
                 }}"
                 class="btn btn-sm btn-primary stretched-link">
-                View
+                {{ 'View'|trans }}
               </a>
             </div>
           </div>

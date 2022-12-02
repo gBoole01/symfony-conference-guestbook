@@ -55,6 +55,11 @@
           </div>
         {% endfor %}
         <div>
+          {{
+            'nb_of_comments'|trans({
+              count: comments|length
+            })
+          }}
           There are {{ comments|length }} comments.
         </div>
         {% if previous >= 0 %}
