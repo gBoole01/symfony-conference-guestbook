@@ -8,7 +8,11 @@
 
 # Mailcatcher Symfony
 
-`symfony open:local:webmail`
+`cd ~/Code/guestbook && symfony open:local:webmail`
+
+# Webpack Compilator
+
+`cd ~/Code/guestbook && symfony run yarn dev --watch`
 
 # Server Symfony Logs
 
@@ -16,11 +20,11 @@
 
 # Launch Message Worker in Dev Mode (Watch for Changes)
 
-`symfony run -d --watch=config,src,templates,vendor symfony console messenger:consume async -vv`
+`cd ~/Code/guestbook && symfony run -d --watch=config,src,templates,vendor symfony console messenger:consume async -vv`
 
 # Watch Server Activity (Retrieve Workers PID)
 
-`symfony server:status`
+`cd ~/Code/guestbook && symfony server:status`
 
 # Stop Worker
 
