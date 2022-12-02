@@ -6,6 +6,10 @@
 
 `cd ~/Code/guestbook && symfony server:start`
 
+# Mailcatcher Symfony
+
+`symfony open:local:webmail`
+
 # Server Symfony Logs
 
 `cd ~/Code/guestbook && symfony server:log`
