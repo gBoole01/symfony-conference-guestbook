@@ -46,7 +46,8 @@ class Comment
     private ?string $photoFilename = null;
 
     #[ORM\Column(length: 255, options: ["default" => "submitted"])]
-    private ?string $state = null;
+    #[Assert\NotNull()]
+    private string $state = 'submitted';
 
     public function __toString(): string
     {
@@ -130,7 +131,7 @@ class Comment
         return $this;
     }
 
-    public function getState(): ?string
+    public function getState(): string
     {
         return $this->state;
     }
